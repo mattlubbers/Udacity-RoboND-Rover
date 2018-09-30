@@ -1,7 +1,14 @@
 ### Project Summary
 This project is conducted in the Unity simulator, and modeled after the NASA Sample Return Challenge. It will involve image processing, rover decision making, controls, and mapping visualization tasks.
 
+The objective for this project is to autonomously navigate a foreign terrain by processing camera data to calculate open pathways, locate rock samples, and map the surrounding area. A short video of the end result can be previewed below:
+
+![Rover](https://media.giphy.com/media/31Trplol2463B34tMs/giphy.gif)
 ##### Perspective Transform
+We begin the perception pipeline by taking a single image from the Rover camera:
+![Original_Image](/assets/Original_Image.png)
+
+This image will then be filtered for field of view that is desired for the rover navigation path, as well as applying a mask:
 ```
 def perspect_transform(img, src, dst):
            
@@ -20,7 +27,9 @@ destination = np.float32([[image.shape[1]/2 - dst_size, image.shape[0] - bottom_
                   ])
 warped, mask = perspect_transform(grid_img, source, destination)
 ```
+![Perspective_Transform](/assets/Perspective_Transform.png)
 ##### Color Thresholding
+The image within the specified field of view will be filtered by specified gray thresholds to provide a finer resolution of navigable terrain for the Rover:
 ```
 def color_thresh(img, rgb_thresh=(160, 160, 160)):
     # Create an array of zeros same xy size as img, but single channel
@@ -38,7 +47,9 @@ def color_thresh(img, rgb_thresh=(160, 160, 160)):
 threshed = color_thresh(warped)
 plt.imshow(threshed, cmap='gray')
 ```
+![Color_Thresholding](/assets/Color_Thresholding.png)
 ##### Coordinate Transformations
+We need to apply several transforms to go from the Camera frame to the Rover path. These transforms will be a conversion of radial coordinates to Rover space, the Rover space to the World frame, and finally to Rover centric polar coordinates: 
 ```
 def rover_coords(binary_img):
     # Identify nonzero pixels
@@ -91,7 +102,9 @@ xpix, ypix = rover_coords(threshed)
 dist, angles = to_polar_coords(xpix, ypix)
 mean_dir = np.mean(angles)
 ```
+![Coordinate_Transforms](/assets/Coordinate_Transforms.png)
 ##### Find Rocks!
+Part of the objective is to locate rock samples in the terrain. The rocks in this environment have a specific yellow color that is unlike other objects along the terrain, and therefore we can create a color filter to identify these objects:
 ```
 def find_rocks(img, levels):
     rock = ((img[:,:,0] > levels[0]) & (img[:,:,1] > levels[1]) & (img[:,:,2] < levels[2]))
@@ -104,7 +117,9 @@ def find_rocks(img, levels):
 levels=(110,110, 50)
 rockmap = find_rocks(rock_img, levels)
 ```
+![Rock](/assets/Rock.PNG)
 ### Process Image
+Once the 
 ```
 def process_image(img):
     # Perspective transform and mask
@@ -128,6 +143,7 @@ def process_image(img):
     obs_x_world, obs_y_world = pix_to_world(obsxpix, obsypix, xpos, ypos, yaw, world_size, scale)
  ```
  ##### Update worldmap
+ The project objective is to track the terrain that the Rover has traveled, as well as populating the map with the rock sample locations that are detected:
  ```
     #Update worldmap (to be displayed on right side of screen)
     data.worldmap[y_world, x_world, 2] = 255
@@ -148,6 +164,7 @@ def process_image(img):
     output_image[0:img.shape[0], img.shape[1]:] = warped
 ```
 ##### Overlay worldmap with ground truth map
+Now that the Worldmap is updated, it will need to be overlayed with the ground truth, or existing known map terrain. This will allow us to determine the percentage of map terrain that the Rover has covered, as well as the fidelity: 
 ```
     map_add = cv2.addWeighted(data.worldmap, 1, data.ground_truth, 0.5, 0)
     # Flip map overlay so y-axis points upward and add to output_image 
@@ -155,7 +172,10 @@ def process_image(img):
     
     return output_image
 ```
+The processing of these images, along with the rover control commands were, stiched together to form a video of the terrain mapping, this video can be found [here](https://github.com/mattlubbers/Udacity-RoboND-Rover/blob/master/Rover_ImageStitching_Video.mp4). 
 ### Process Live Rover Data
+The next objective of the project was to take the Rover camera input and process the image to determine control commands to navigate the terrain on the fly! The full Rover image data can be found [in the rover_images directory](https://github.com/mattlubbers/Udacity-RoboND-Rover/tree/master/rover_images), and a sample image of the live data can be seen below:
+![Rover_Data](/rover_images/2018_09_30_02_30_04_746.jpg)
 ```
 def perception_step(Rover):
     dst_size = 5
@@ -219,7 +239,10 @@ def perception_step(Rover):
 ```
 
 ### Autonomous Mode
+Now that the image processing as been adjusted for the live Rover data, we need to add commands for the decision making behavior to determine what the Rover should do!
+![Rover_AutonomousMode](/assets/Rover_AutonomousMode.PNG)
 ##### Longitudinal Controls
+First things first, we need to determine if the Rover has a clear path to continue moving forward, or if it should stop for an object:
 ```
 def decision_step(Rover):
     if Rover.nav_angles is not None:
@@ -247,6 +270,7 @@ def decision_step(Rover):
                     Rover.mode = 'stop'
 ```
 ##### Stop! Steer? Move Forward!
+If the decision to stop has been made, we can monitor the speed to slow the vehicle, as well as determine if a steering input is necessary to either maneuver around an obstacle or turn around completely in a dead-end:
 ```
         elif Rover.mode == 'stop':
             # We're not slow enough, keep braking
@@ -274,6 +298,7 @@ def decision_step(Rover):
                     Rover.mode = 'forward'
 ```
 ##### Keep Cruisin!
+If nothing is in our way, let's keep on the throttle!
 ```
     else:
         Rover.throttle = Rover.throttle_set
