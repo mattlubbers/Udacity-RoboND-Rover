@@ -117,7 +117,7 @@ def find_rocks(img, levels):
 levels=(110,110, 50)
 rockmap = find_rocks(rock_img, levels)
 ```
-![Rock](/assets/Rock.png)
+![Rock](/assets/Rock.PNG)
 ### Process Image
 Once the 
 ```
