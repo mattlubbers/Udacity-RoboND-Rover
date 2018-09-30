@@ -112,6 +112,7 @@ def perception_step(Rover):
 
     dst_size = 5
     bottom_offset = 6
+    image = Rover.img
     source = np.float32([[14, 140], [301, 140], [200, 96], [118, 96]])
     destination = np.float32([[image.shape[1] / 2 - dst_size, image.shape[0] - bottom_offset],
                               [image.shape[1] / 2 + dst_size, image.shape[0] - bottom_offset],
@@ -134,20 +135,20 @@ def perception_step(Rover):
     xpix, ypix = rover_coords(threshed)
 
     # Convert rover-centric pixel values to world coords
-    world_size = data.worldmap.shape[0]
+    world_size = Rover.worldmap.shape[0]
     scale = 2 * dst_size
-    xpos = data.xpos[data.count]
-    ypos = data.ypos[data.count]
-    yaw = data.yaw[data.count]
-    x_world, y_world = pix_to_world(xpix, ypix, xpos, ypos, yaw, world_size, scale)
+    #xpos = data.xpos[data.count]
+    #ypos = data.ypos[data.count]
+    #yaw = data.yaw[data.count]
+    x_world, y_world = pix_to_world(xpix, ypix, Rover.pos[0], Rover.pos[1], Rover.yaw, world_size, scale)
     obsxpix, obsypix = rover_coords(obs_map)
-    obs_x_world, obs_y_world = pix_to_world(obsxpix, obsypix, xpos, ypos, yaw, world_size, scale)
+    obs_x_world, obs_y_world = pix_to_world(obsxpix, obsypix, Rover.pos[0], Rover.pos[1], Rover.yaw, world_size, scale)
 
     # Update worldmap (to be displayed on right side of screen)
     Rover.worldmap[y_world, x_world, 2] += 10
     Rover.worldmap[obs_y_world, obs_x_world, 0] += 1
     dist, angles = to_polar_coords(xpix, ypix)
-    nav_pix = data.worldmap[:, :, 2] > 0
+    #nav_pix = Rover.worldmap[:, :, 2] > 0
     Rover.nav_angles = angles
     #data.worldmap[nav_pix, 0] = 0
 
