@@ -160,7 +160,7 @@ def process_image(img):
     return output_image
 ```
 ### Process Live Rover Data
-![Rover_Data](/rover_images/2018_09_30_02_30_04_746.png)
+![Rover_Data](/rover_images/2018_09_30_02_30_04_746.jpg)
 ```
 def perception_step(Rover):
     dst_size = 5
@@ -224,7 +224,7 @@ def perception_step(Rover):
 ```
 
 ### Autonomous Mode
-![Rover_AutonomousMode](/assets/Rover_AutonomousMode.png)
+![Rover_AutonomousMode](/assets/Rover_AutonomousMode.PNG)
 ##### Longitudinal Controls
 ```
 def decision_step(Rover):
