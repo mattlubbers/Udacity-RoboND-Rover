@@ -1,9 +1,7 @@
 ### Project Summary
 This project is conducted in the Unity simulator, and modeled after the NASA Sample Return Challenge. It will involve image processing, rover decision making, controls, and mapping visualization tasks.
 
-The objective for this project is to autonomously navigate a foreign terrain by processing camera data to calculate open pathways, locate rock samples, and map the surrounding area. A short video of the end result can be previewed below:
-
-![Rover](https://media.giphy.com/media/31Trplol2463B34tMs/giphy.gif)
+The objective for this project is to autonomously navigate a foreign terrain by processing camera data to calculate open pathways, locate rock samples, and map the surrounding area. 
 ##### Perspective Transform
 We begin the perception pipeline by taking a single image from the Rover camera:
 ![Original_Image](/assets/Original_Image.png)
@@ -119,7 +117,7 @@ rockmap = find_rocks(rock_img, levels)
 ```
 ![Rock](/assets/Rock.PNG)
 ### Process Image
-Once the 
+Once the coordinate transforms are complete, we can now use the images from the Rover centric frame to apply the mask and use the grayscale filter to determine the navigable path for the Rover:  
 ```
 def process_image(img):
     # Perspective transform and mask
@@ -173,8 +171,11 @@ Now that the Worldmap is updated, it will need to be overlayed with the ground t
     return output_image
 ```
 The processing of these images, along with the rover control commands were, stiched together to form a video of the terrain mapping, this video can be found [here](https://github.com/mattlubbers/Udacity-RoboND-Rover/blob/master/Rover_ImageStitching_Video.mp4). 
+
+The full analysis for the sample data image processing can be referenced [here](https://github.com/mattlubbers/Udacity-RoboND-Rover/blob/master/Rover_Lab_Notebook.pdf).
 ### Process Live Rover Data
-The next objective of the project was to take the Rover camera input and process the image to determine control commands to navigate the terrain on the fly! The full Rover image data can be found [in the rover_images directory](https://github.com/mattlubbers/Udacity-RoboND-Rover/tree/master/rover_images), and a sample image of the live data can be seen below:
+The next objective of the project was to take the Rover camera input and process the image to determine control commands to navigate the terrain on the fly! The full Rover image data can be found in the [rover_images](https://github.com/mattlubbers/Udacity-RoboND-Rover/tree/master/rover_images) directory, and a sample image of the live data can be seen below:
+
 ![Rover_Data](/rover_images/2018_09_30_02_30_04_746.jpg)
 ```
 def perception_step(Rover):
@@ -240,6 +241,7 @@ def perception_step(Rover):
 
 ### Autonomous Mode
 Now that the image processing as been adjusted for the live Rover data, we need to add commands for the decision making behavior to determine what the Rover should do!
+
 ![Rover_AutonomousMode](/assets/Rover_AutonomousMode.PNG)
 ##### Longitudinal Controls
 First things first, we need to determine if the Rover has a clear path to continue moving forward, or if it should stop for an object:
@@ -311,4 +313,4 @@ If nothing is in our way, let's keep on the throttle!
 - Controls can be further refined
 - No rock sample collection, only identification and location logging
 ### Conclusion
-The Rover Simulator project was an excellent challenge to familiarize with image processing, decision making, and controls. If there were more time, additional measures would be added to score better on map fidelity and map coverage. However, through the run with the Simulator in Autonomous mode, it was able to identify and locate 5 rocks, with a 71% map fidelity and a 41% map coverage score!
+The Rover Simulator project was an excellent challenge to familiarize with image processing, decision making, and controls. If there were more time, additional measures would be added to score better on map fidelity and map coverage. However, through the run with the Simulator in Autonomous mode, it was able to identify and locate 5 rocks, with a 71% map fidelity and a 41% map coverage score! The full video of the project results can be found [here](https://github.com/mattlubbers/Udacity-RoboND-Rover/blob/master/Rover_Autonomous_Video.mp4).
