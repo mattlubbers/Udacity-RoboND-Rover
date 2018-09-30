@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c04f4ab5-c39b-47a6-8fbc-1ccf91170f70" name="Default" comment="" />
+    <list default="true" id="c04f4ab5-c39b-47a6-8fbc-1ccf91170f70" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="perception.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="perception.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/perception.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="36" column="55" lean-forward="false" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+            <state relative-caret-position="238">
+              <caret line="104" column="46" lean-forward="true" selection-start-line="104" selection-start-column="46" selection-end-line="104" selection-end-column="46" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -44,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rover_Lab_Notebook.ipynb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Rover_Lab_Notebook.ipynb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/Rover_Lab_Notebook.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
-              <selected id="0" />
+              <selected id="19" />
             </state>
           </provider>
         </entry>
@@ -56,8 +58,8 @@
       <file leaf-file-name="decision.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/decision.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+            <state relative-caret-position="374">
+              <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -100,12 +102,12 @@
         <subPane>
           <expand>
             <path>
-              <item name="RoboND-Rover-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RoboND-Rover-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Udacity-RoboND-Rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Udacity-RoboND-Rover" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RoboND-Rover-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RoboND-Rover-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Udacity-RoboND-Rover" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Udacity-RoboND-Rover" type="462c0819:PsiDirectoryNode" />
               <item name="code" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -206,24 +208,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/decision.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code/perception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="36" column="55" lean-forward="false" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/Rover_Final.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -245,6 +229,24 @@
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/decision.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/perception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="104" column="46" lean-forward="true" selection-start-line="104" selection-start-column="46" selection-end-line="104" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
