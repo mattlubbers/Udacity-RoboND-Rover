@@ -23,7 +23,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rover_Final.ipynb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Rover_Final.ipynb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/Rover_Final.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
@@ -35,11 +35,20 @@
       <file leaf-file-name="supporting_functions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/supporting_functions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
+            <state relative-caret-position="361">
               <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rover_Lab_Notebook.ipynb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/code/Rover_Lab_Notebook.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="0" />
             </state>
           </provider>
         </entry>
@@ -66,9 +75,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="76" />
-    <option name="y" value="30" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-1890" />
+    <option name="y" value="25" />
     <option name="width" value="1734" />
     <option name="height" value="1100" />
   </component>
@@ -139,7 +148,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="76" y="30" width="1734" height="1100" extended-state="0" />
+    <frame x="-1890" y="25" width="1734" height="1100" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24388824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -197,16 +206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/supporting_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/decision.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -226,6 +225,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code/Rover_Final.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/supporting_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/Rover_Lab_Notebook.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
