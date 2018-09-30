@@ -2,6 +2,7 @@
 This project is conducted in the Unity simulator, and modeled after the NASA Sample Return Challenge. It will involve image processing, rover decision making, controls, and mapping visualization tasks.
 
 ##### Perspective Transform
+![Original_Image](/assets/Original_Image.png)
 ```
 def perspect_transform(img, src, dst):
            
@@ -20,6 +21,7 @@ destination = np.float32([[image.shape[1]/2 - dst_size, image.shape[0] - bottom_
                   ])
 warped, mask = perspect_transform(grid_img, source, destination)
 ```
+![Perspective_Transform](/assets/Perspective_Transform.png)
 ##### Color Thresholding
 ```
 def color_thresh(img, rgb_thresh=(160, 160, 160)):
@@ -38,6 +40,7 @@ def color_thresh(img, rgb_thresh=(160, 160, 160)):
 threshed = color_thresh(warped)
 plt.imshow(threshed, cmap='gray')
 ```
+![Color_Thresholding](/assets/Color_Thresholding.png)
 ##### Coordinate Transformations
 ```
 def rover_coords(binary_img):
@@ -91,6 +94,7 @@ xpix, ypix = rover_coords(threshed)
 dist, angles = to_polar_coords(xpix, ypix)
 mean_dir = np.mean(angles)
 ```
+![Coordinate_Transforms](/assets/Coordinate_Transforms.png)
 ##### Find Rocks!
 ```
 def find_rocks(img, levels):
@@ -156,6 +160,7 @@ def process_image(img):
     return output_image
 ```
 ### Process Live Rover Data
+![Rover_Data](/rover_images/2018_09_30_02_30_04_746.png)
 ```
 def perception_step(Rover):
     dst_size = 5
@@ -219,6 +224,7 @@ def perception_step(Rover):
 ```
 
 ### Autonomous Mode
+![Rover_AutonomousMode](/assets/Rover_AutonomousMode.png)
 ##### Longitudinal Controls
 ```
 def decision_step(Rover):
