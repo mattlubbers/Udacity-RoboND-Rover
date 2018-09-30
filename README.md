@@ -1,6 +1,6 @@
 ### Project Summary
 This project is conducted in the Unity simulator, and modeled after the NASA Sample Return Challenge. It will involve image processing, rover decision making, controls, and mapping visualization tasks.
-
+![Rover](https://gph.is/2NSeLa2.gif)
 ##### Perspective Transform
 ![Original_Image](/assets/Original_Image.png)
 ```
